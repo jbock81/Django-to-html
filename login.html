@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PostTag Dashboard</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./static/dashboard/fonts/bariol/style.css">
+  <link rel="stylesheet" type="text/css" href="./static/dashboard/fonts/work-sans/style.css">
+  <link rel="stylesheet" type="text/css" href="./static/dashboard/css/style.css">
+  <script src="./static/dashboard/lib/highcharts/code/highcharts.js"></script>
+  <script src="./static/dashboard/lib/highcharts/code/highcharts-more.js"></script>
+  <script src="./static/dashboard/lib/highcharts/code/modules/solid-gauge.js"></script>
+  <script src="./static/dashboard/lib/highcharts/code/modules/exporting.js"></script>
+  <script src="./static/dashboard/lib/highcharts/code/modules/export-data.js"></script>
+  <script src="./static/dashboard/lib/highcharts/code/modules/accessibility.js"></script>
+</head>
+<body class="login">
+  <header class="p-header">
+    <div></div>
+    <div class="p-header__logo">
+      <img src="./static/dashboard/images/posttag-logo.png" alt="PostTag">
+    </div>
+    <div class="p-header__user">
+      
+    </div>
+    <hr class="p-divider">
+  </header>
+
+  <nav class="p-navigation">
+    <div class="p-navigation__toggle">
+      <i class="p-navigation__toggle-icon"></i>
+    </div>
+    <ul class="p-navigation__wrapper">
+        <li class="p-navigation__item"><a class="p-navigation__link p-navigation__link--logout is-active" href="">Login</a></li>
+    </ul>
+  </nav>
+
+  <div class="p-content__row">
+    <header class="p-content__column p-content__column--half">
+      
+    </header>
+  </div>
+  <div class="p-content__row">
+    <section class="p-content__column">
+      <form accept-charset="UTF-8" action="" autocomplete="off" method="POST" class="p-form">
+        <fieldset class="p-form__row">
+          <label for="username" class="p-form__label">Username</label>
+          <input id="username" name="username" type="text" class="p-form__input" />
+        </fieldset>
+        <fieldset class="p-form__row">
+          <label for="password" class="p-form__label">Password</label>
+          <input id="password" name="password" type="password" class="p-form__input" />
+        </fieldset>
+        <fieldset class="p-form__row">
+          <button id="btn_submit" type="button" value="Submit" class="p-form__button">Login</button>
+        </fieldset>
+      </form>
+    </section>
+  </div>
+  <div class="p-content__row">
+    <section class="p-content__column p-content__column--half">
+      
+    </section>
+    <section class="p-content__column p-content__column--half">
+      
+    </section>
+  </div>
+</body>
+</html>
+<script>
+  $(document).ready(function(){
+    $("#btn_submit").click(function(){
+
+      if ($("#username").val() == "test1" && $("#password").val() == "1test")
+      {
+        location.href = "dashboard.html";
+      }
+    });
+  });
+</script>

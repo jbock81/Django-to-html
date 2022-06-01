@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PostTag Dashboard</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./static/dashboard/fonts/bariol/style.css">
+  <link rel="stylesheet" type="text/css" href="./static/dashboard/fonts/work-sans/style.css">
+  <link rel="stylesheet" type="text/css" href="./static/dashboard/css/style.css">
+  <script src="./static/dashboard/lib/highcharts/code/highcharts.js"></script>
+  <script src="./static/dashboard/lib/highcharts/code/highcharts-more.js"></script>
+  <script src="./static/dashboard/lib/highcharts/code/modules/solid-gauge.js"></script>
+  <script src="./static/dashboard/lib/highcharts/code/modules/exporting.js"></script>
+  <script src="./static/dashboard/lib/highcharts/code/modules/export-data.js"></script>
+  <script src="./static/dashboard/lib/highcharts/code/modules/accessibility.js"></script>
+</head>
+<body class="simple-dashboard">
+  <header class="p-header">
+    <div></div>
+    <div class="p-header__logo">
+      <img src="./static/dashboard/images/posttag-logo.png" alt="PostTag">
+    </div>
+    <div class="p-header__user">
+      <a>test1 &nbsp; 1test &nbsp; (Domnioes&nbsp;Devel)</a>
+      <i class="icon icon--profile is-inline"></i>
+    </div>
+    <hr class="p-divider">
+  </header>
+
+  <nav class="p-navigation">
+    <div class="p-navigation__toggle">
+      <i class="p-navigation__toggle-icon"></i>
+    </div>
+    <ul class="p-navigation__wrapper">
+        <li class="p-navigation__item">
+          <a class="p-navigation__link p-navigation__link--logout is-active" href="login.html">Logout</a>
+        </li>
+        <li class="p-navigation__item">
+          <a class="p-navigation__link p-navigation__link--dashboard" href="#">Your Dashboard</a>
+        </li>
+    </ul>
+  </nav>
+
+  <div class="p-content__row">
+    <header class="p-content__column p-content__column--half">
+      
+    </header>
+  </div>
+  <div class="p-content__row">
+    <section class="p-content__column">
+      
+    </section>
+  </div>
+  <div class="p-content__row">
+    <section class="p-content__column p-content__column--half">
+      <h2>Example Graph</h2>
+      <div id="su" style="max-width: 400px; margin: auto;"></div>
+      <p class="p-chart__caption">
+        55%  
+      </p>
+      <p class="p-chart__sub-caption"></p>
+      <p></p>
+    </section>
+    <section class="p-content__column p-content__column--half">
+      <h2>Select a date range to view</h2>
+      <form accept-charset="UTF-8" method="GET" class="p-form">
+        <fieldset class="p-form__row">
+          <label for="from-date" class="p-form__label">From date</label>
+          <input type="text" id="from-date" name="from-date" class="p-form__input">
+        </fieldset>
+        <fieldset class="p-form__row">
+          <label for="to-date" class="p-form__label">To date</label>
+          <input type="text" id="to-date" name="to-date" class="p-form__input">
+        </fieldset>
+        <fieldset class="p-form__row">
+          <button type="submit" value="Submit" class="p-form__button">Update</button>
+        </fieldset>
+      </form>
+    </section>
+  </div>
+</body>
+</html>
+<script>
+  $(document).ready(function(){
+    $("#from-date").datepicker();
+    $("#to-date").datepicker();
+  });
+  
+  var color1 = '#D54047';
+  var bgColor = '#d49699';
+  var color2 = '#224A6C';
+
+Highcharts.chart('su', {
+
+    chart: {
+        type: 'solidgauge',
+        height: '100%',
+        events: {}
+    },
+
+    credits: {
+        enabled: false
+    },
+
+    title: {
+    	text: ''
+    },
+
+    navigation: {
+      buttonOptions: {
+        enabled: false
+      }
+    },
+
+    tooltip: {
+      enabled: false
+    },
+
+    pane: {
+        startAngle: 0,
+        endAngle: 360,
+        background: [{
+            outerRadius: '100%',
+            innerRadius: '75%',
+            backgroundColor: bgColor,
+            borderWidth: 0
+        }]
+    },
+
+    yAxis: {
+        min: 0,
+        max: 100,
+        lineWidth: 0,
+        tickPositions: []
+    },
+
+    plotOptions: {
+        solidgauge: {
+            dataLabels: {
+                enabled: false
+            },
+            linecap: 'round',
+            stickyTracking: false,
+            rounded: true
+        }
+    },
+
+    series: [{
+        data: [{
+            color: color1,
+            radius: '100%',
+            innerRadius: '75%',
+            y: 55
+        }]
+      }]
+});
+</script>
